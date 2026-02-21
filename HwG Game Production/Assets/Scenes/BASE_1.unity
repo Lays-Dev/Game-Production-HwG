@@ -506,6 +506,8 @@ GameObject:
   - component: {fileID: 1414679028}
   - component: {fileID: 1414679027}
   - component: {fileID: 1414679026}
+  - component: {fileID: 1414679030}
+  - component: {fileID: 1414679031}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -600,12 +602,52 @@ Transform:
   m_GameObject: {fileID: 1414679025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.22249, y: 0, z: 14.74042}
+  m_LocalPosition: {x: -10.22249, y: 0.71, z: 14.74042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414679030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414679025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2b64668a4a1644fae742752f3af6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  speed: 5
+  jumpHeight: 1.5
+  gravity: -9.81
+--- !u!143 &1414679031
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414679025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1712724285
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,6 +945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053436021c51fda45976c14afb0ea990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySound
+  stunDuration: 1.2
+  patrolSpeed: 3.5
+  chaseSpeed: 3.5
+  chaseAcceleration: 8
   currentState: 0
   player: {fileID: 1414679029}
   soundInvestigationPoint: {fileID: 2010142227}
@@ -912,7 +958,7 @@ MonoBehaviour:
   - {fileID: 2010142227}
   - {fileID: 1414679029}
   viewDistance: 15
-  fovAngle: 60
+  fovAngle: 80
 --- !u!135 &1879378867
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1076,6 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93ac28b08488f642adbccd218617aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItem
+  enemyScript: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -72,7 +72,7 @@ public class EnemySound : MonoBehaviour
 
         if (canSee) 
         {
-            if (!wasChasingLastFrame)
+            if (!wasChasingLastFrame && !isStunned)
             {
                 isStunned = true;
                 stunTimer = stunDuration;
@@ -97,6 +97,8 @@ public class EnemySound : MonoBehaviour
                 {
                     isStunned = false;
                     agent.isStopped = false;
+                    // Enemy resumes after stun
+                    agent.ResetPath();
                 }
                 return;
             }
@@ -114,7 +116,8 @@ public class EnemySound : MonoBehaviour
         {
             // Reset the "Spotted" flag when the player successfully hides
             wasChasingLastFrame = false;
-            isStunned = false;
+            //isStunned = false;
+            // This line was causing the enemy to stop every frame
 
             if (currentState == EnemyState.Chasing) 
             {
