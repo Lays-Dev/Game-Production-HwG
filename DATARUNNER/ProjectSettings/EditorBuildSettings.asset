@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LVL_Setup.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DATARUNNER.unity
     guid: 3ab8fcfdb0a36453aba9744549447d78
+  - enabled: 1
+    path: Assets/DATARUNNER.unity
+    guid: a679eba62cef2844a98a8706b33a21c9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
