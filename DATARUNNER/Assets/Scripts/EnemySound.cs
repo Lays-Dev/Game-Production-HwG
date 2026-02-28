@@ -32,6 +32,8 @@ public class EnemySound : MonoBehaviour
     private float stunTimer = 0f;
     private bool isStunned = false;
     private bool wasChasingLastFrame = false;
+    private float memoryTimer = 0f;
+    public float memoryDuration = 2f;
 
     // Enemy moves faster when chasing the player
     [Header("Movement Settings")]
@@ -55,11 +57,12 @@ public class EnemySound : MonoBehaviour
     [Header("Settings")]
     public float viewDistance = 15f;
     public float fovAngle = 60f;
-    
+    private PlayerMovement playerMovement;
     private NavMeshAgent agent;
     private int patrolIndex;
 
     void Start() {
+        playerMovement = player.GetComponent<PlayerMovement>();
         agent = GetComponent<NavMeshAgent>();
         GoToNextPatrolPoint();
     }
@@ -67,10 +70,25 @@ public class EnemySound : MonoBehaviour
     void Update() 
 	// Checks if player is in sight before following the cautious path
 	{
+        if (playerMovement != null && playerMovement.IsSprinting)
+        {
+            Debug.Log("Enemy detects sprinting");
+        }
+        // Memory logic
         bool canSee = CanSeePlayer();
+        bool canHearSprint = playerMovement != null && playerMovement.IsSprinting;
+
+        if (canSee || canHearSprint)
+        {
+            memoryTimer = memoryDuration;
+        }
+        else
+        {
+            memoryTimer -= Time.deltaTime;
+        }
 
 
-        if (canSee) 
+        if (memoryTimer > 0)
         {
             if (!wasChasingLastFrame && !isStunned)
             {
@@ -133,6 +151,7 @@ public class EnemySound : MonoBehaviour
             }
         }
     }
+    //
 
     // Triggered by the Sound Sphere (Sphere Collider)
     private void OnTriggerStay(Collider other) 
@@ -140,11 +159,14 @@ public class EnemySound : MonoBehaviour
         if (currentState != EnemyState.Chasing && other.CompareTag("Player")) 
         {
             // Check if player is sprinting or jumping (replace with input)
-            bool isLoud = Input.GetKey(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.Space);
-
-            if (isLoud) {
-                currentState = EnemyState.Investigating;
-                agent.SetDestination(ItemPedistal.position);
+            bool isLoud = playerMovement != null && playerMovement.IsSprinting;
+            if (isLoud)
+            {
+                //memoryTimer = memoryDuration;
+                currentState = EnemyState.Chasing;
+                agent.speed = chaseSpeed;
+                agent.acceleration = chaseAcceleration;
+                agent.SetDestination(player.position);
             }
         }
     }
