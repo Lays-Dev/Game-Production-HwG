@@ -17,6 +17,8 @@ public class PauseGame : MonoBehaviour
         {
             pauseMenu_UI.SetActive(true);
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             AudioListener.pause = true;
         }
     }
@@ -26,12 +28,14 @@ public class PauseGame : MonoBehaviour
     {
         pauseMenu_UI.SetActive(false);
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         AudioListener.pause = false;
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu_UI");
+        SceneManager.LoadScene("MainMenu");
         AudioListener.pause = false;
     }
 }

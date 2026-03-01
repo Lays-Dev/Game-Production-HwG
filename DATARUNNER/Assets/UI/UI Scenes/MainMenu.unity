@@ -574,7 +574,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.8131768, g: 0.5663492, b: 0.8396226, a: 1}
     m_PressedColor: {r: 0.7346898, g: 0.33521718, b: 0.8773585, a: 1}
-    m_SelectedColor: {r: 0.4572475, g: 0, b: 0.5, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1192,7 +1192,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.8396226, g: 0.23556395, b: 0.19406372, a: 1}
     m_PressedColor: {r: 0.4784314, g: 0.14509805, b: 0.078431375, a: 1}
-    m_SelectedColor: {r: 0.3490566, g: 0.027990391, b: 0.075119406, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1620,8 +1620,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.56
-  m_fontSizeBase: 18.56
+  m_fontSize: 16.76
+  m_fontSizeBase: 16.76
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1736,7 +1736,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 1}
     m_HighlightedColor: {r: 0.32872015, g: 0.8166091, b: 0.8396226, a: 1}
     m_PressedColor: {r: 0.13389996, g: 0.5566038, b: 0.549786, a: 1}
-    m_SelectedColor: {r: 0, g: 0.0627451, b: 0.4431373, a: 1}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
