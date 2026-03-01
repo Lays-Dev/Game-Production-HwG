@@ -11,6 +11,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DATARUNNER.unity
     guid: 3ab8fcfdb0a36453aba9744549447d78
+  - enabled: 1
+    path: Assets/UI/UI Scenes/MainMenu.unity
+    guid: b84d0801924b12d4a9bc695c3040b0f6
+  - enabled: 1
+    path: Assets/UI/UI Scenes/GameOverScreen.unity
+    guid: b14cb220e266a0143898f35cb9a83584
+  - enabled: 1
+    path: Assets/UI/UI Scenes/CreditsMenu.unity
+    guid: 30ff230a74359f04b92838138d0fac81
+  - enabled: 1
+    path: Assets/UI/UI Scenes/PauseMenu.unity
+    guid: 964a0f0621de9a34280c4ce3bd4d6658
+  - enabled: 1
+    path: Assets/UI/UI Scenes/WinScreen.unity
+    guid: 0820f058d6b81984a8d09a7cc3437bd3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
