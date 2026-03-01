@@ -5356,9 +5356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
-  sprintSpeed: 15
-  sprintDuration: 10
-  jumpHeight: 1.5
+  sprintSpeed: 10
+  sprintDuration: 3
+  jumpHeight: 0.8
   gravity: -9.81
 --- !u!65 &434417780
 BoxCollider:
@@ -5467,6 +5467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHack
   enemy: {fileID: 992709851}
+  firstUnlockDelay: 15
+  hackCooldown: 60
 --- !u!43 &444649728
 Mesh:
   m_ObjectHideFlags: 0
@@ -9963,8 +9965,8 @@ MonoBehaviour:
   player: {fileID: 434417783}
   ItemPedistal: {fileID: 8940490801464357969}
   patrolPoints:
-  - {fileID: 1879117280}
   - {fileID: 529841101}
+  - {fileID: 1879117280}
   - {fileID: 1411447235}
   - {fileID: 1680591164}
   - {fileID: 473710743}
@@ -9989,6 +9991,8 @@ MonoBehaviour:
   - {fileID: 1411447235}
   viewDistance: 10
   fovAngle: 80
+  stuckTimeThreshold: 3
+  stuckVelocityThreshold: 0.1
 --- !u!135 &992709843
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11708,6 +11712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd2dc84768e4f74ba62ba419304fd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataChip
+  enemy: {fileID: 992709842}
 --- !u!114 &1201296329
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,22 +61,36 @@ public class EnemySound : MonoBehaviour
     private NavMeshAgent agent;
     private int patrolIndex;
 
+// Keeps enemy from getting stuck
+    [Header("Stuck Settings")]
+    public float stuckTimeThreshold = 3f;
+    public float stuckVelocityThreshold = 0.1f;
+
+    private float stuckTimer = 0f;
+
+    // Hack variables
+    private EnemyHack enemyHack;
+
     void Start() {
         playerMovement = player.GetComponent<PlayerMovement>();
         agent = GetComponent<NavMeshAgent>();
+        enemyHack = GetComponent<EnemyHack>();
         GoToNextPatrolPoint();
     }
 
     void Update() 
 	// Checks if player is in sight before following the cautious path
 	{
+        CheckIfStuck();
+
         if (playerMovement != null && playerMovement.IsSprinting)
         {
             Debug.Log("Enemy detects sprinting");
         }
         // Memory logic
         bool canSee = CanSeePlayer();
-        bool canHearSprint = playerMovement != null && playerMovement.IsSprinting;
+        // Enemy can hear the player if they are sprinting, unless the enemy is hacked
+        bool canHearSprint = playerMovement != null && playerMovement.IsSprinting && (enemyHack == null || !enemyHack.IsHacked);
 
         if (canSee || canHearSprint)
         {
@@ -153,13 +167,40 @@ public class EnemySound : MonoBehaviour
     }
     //
 
+    void CheckIfStuck()
+    {
+        if (!agent.pathPending &&
+            agent.hasPath &&
+            agent.remainingDistance > agent.stoppingDistance &&
+            agent.velocity.magnitude < stuckVelocityThreshold)
+        {
+            stuckTimer += Time.deltaTime;
+
+            if (stuckTimer >= stuckTimeThreshold)
+            {
+                Debug.Log("Enemy was stuck! Recalculating path...");
+
+                Vector3 currentDestination = agent.destination;
+
+                agent.ResetPath();
+                agent.SetDestination(currentDestination);
+
+                stuckTimer = 0f;
+            }
+        }
+        else
+        {
+            stuckTimer = 0f;
+        }
+    }
+
     // Triggered by the Sound Sphere (Sphere Collider)
     private void OnTriggerStay(Collider other) 
     {
         if (currentState != EnemyState.Chasing && other.CompareTag("Player")) 
         {
-            // Check if player is sprinting or jumping (replace with input)
-            bool isLoud = playerMovement != null && playerMovement.IsSprinting;
+            // Check if player is sprinting or jumping (replace with input) UNLESS hacked
+            bool isLoud = playerMovement != null && playerMovement.IsSprinting && (enemyHack == null || !enemyHack.IsHacked);
             if (isLoud)
             {
                 //memoryTimer = memoryDuration;
@@ -198,5 +239,26 @@ public class EnemySound : MonoBehaviour
         // This forces the enemy to go to the player, 
         agent.SetDestination(player.position); 
         agent.isStopped = false;
+    }
+
+    // Chase player when data chip is picked up
+    public void OnDataChipStolen()
+    {
+        Debug.Log("Data Chip stolen! Enemy is now hunting player!");
+
+        // Clear any memory timers
+        memoryTimer = memoryDuration;
+
+        // Cancel stun if active
+        isStunned = false;
+        agent.isStopped = false;
+
+        // Force chase state
+        currentState = EnemyState.Chasing;
+
+        agent.speed = chaseSpeed;
+        agent.acceleration = chaseAcceleration;
+
+        agent.SetDestination(player.position);
     }
 }

@@ -10,6 +10,7 @@ public class EnemyHack : MonoBehaviour
     public bool canHearPlayer = true;
 
     private bool isHacked = false;
+    public bool IsHacked => isHacked;
 
     void Start()
     {
