@@ -226,12 +226,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1520700692}
-  m_Father: {fileID: 1019081475}
+  m_Father: {fileID: 1774726060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3343855, y: 0.37012804}
   m_AnchorMax: {x: 0.6229726, y: 0.5447332}
-  m_AnchoredPosition: {x: -0.5, y: -0.9999542}
-  m_SizeDelta: {x: -205, y: -75}
+  m_AnchoredPosition: {x: -15.079346, y: -70.541336}
+  m_SizeDelta: {x: 157.63159, y: -4.545944}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88129112
 MonoBehaviour:
@@ -276,7 +276,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 88129113}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019081476}
+        m_TargetAssemblyTypeName: LoseScreen, Assembly-CSharp
+        m_MethodName: RetryButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &88129113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,19 +352,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227999139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 54173419}
   - {fileID: 2019383493}
-  m_Father: {fileID: 1019081475}
+  m_Father: {fileID: 1774726060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 12.212036, y: -52.36444}
+  m_SizeDelta: {x: 1256.5759, y: 403.50485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &227999141
 MonoBehaviour:
@@ -417,17 +429,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280014961}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.418512, y: 5.729382, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1019081475}
+  m_Father: {fileID: 1774726060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.034328956}
   m_AnchorMax: {x: 1, y: 0.9686052}
-  m_AnchoredPosition: {x: -1, y: 0.5}
-  m_SizeDelta: {x: -1178, y: -468}
+  m_AnchoredPosition: {x: 11.212036, y: -51.27243}
+  m_SizeDelta: {x: 78.57593, y: -91.014984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &280014963
 MonoBehaviour:
@@ -497,12 +509,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1019081475}
+  m_Father: {fileID: 1774726060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10914021, y: 0.5921054}
   m_AnchorMax: {x: 0.8558495, y: 0.93951315}
-  m_AnchoredPosition: {x: -379, y: 73.49997}
-  m_SizeDelta: {x: -754, y: -161}
+  m_AnchoredPosition: {x: -388.7845, y: 128.39087}
+  m_SizeDelta: {x: 184.297, y: -20.819275}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &310197377
 MonoBehaviour:
@@ -882,6 +894,7 @@ GameObject:
   - component: {fileID: 1019081474}
   - component: {fileID: 1019081473}
   - component: {fileID: 1019081472}
+  - component: {fileID: 1019081476}
   m_Layer: 5
   m_Name: GameOverScreen_Canvas
   m_TagString: Untagged
@@ -964,11 +977,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 227999140}
-  - {fileID: 280014962}
-  - {fileID: 88129111}
-  - {fileID: 1384871148}
-  - {fileID: 310197376}
+  - {fileID: 1774726060}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -976,6 +985,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1019081476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019081471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d579b525b537b647855748e93b5d9ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoseScreen
+  gameLose_UI: {fileID: 1774726059}
 --- !u!1 &1384871147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,12 +1030,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1445121908}
-  m_Father: {fileID: 1019081475}
+  m_Father: {fileID: 1774726060}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33235046, y: 0.12573215}
   m_AnchorMax: {x: 0.6209376, y: 0.30033734}
-  m_AnchoredPosition: {x: -0.5, y: -0.99993896}
-  m_SizeDelta: {x: -205, y: -75}
+  m_AnchoredPosition: {x: -17.636536, y: -169.15623}
+  m_SizeDelta: {x: 157.63159, y: -4.5459747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384871149
 MonoBehaviour:
@@ -1058,7 +1080,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1384871150}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019081476}
+        m_TargetAssemblyTypeName: LoseScreen, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1384871150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1405,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1520700691}
   m_CullTransparentMesh: 1
+--- !u!1 &1774726059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774726060}
+  m_Layer: 5
+  m_Name: LoseUI_Con
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1774726060
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774726059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 227999140}
+  - {fileID: 280014962}
+  - {fileID: 88129111}
+  - {fileID: 1384871148}
+  - {fileID: 310197376}
+  m_Father: {fileID: 1019081475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -12.212036, y: 52.36443}
+  m_SizeDelta: {x: 24.424072, y: 204.49515}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2019383492
 GameObject:
   m_ObjectHideFlags: 0
