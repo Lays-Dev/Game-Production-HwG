@@ -1,18 +1,55 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DataChip : MonoBehaviour
 {
-    public EnemySound enemy;
+    public static bool playerHasDataChip = false;
 
-    public void PickUp()
+    private bool playerInRange = false;
+    // UI functionality
+    public UIText uiText;
+
+void Update()
+{
+    if (playerInRange)
     {
-        Debug.Log("Picked up: Data Chip");
+        //Debug.Log("Player in range");
 
-        if (enemy != null)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            enemy.OnDataChipStolen();
+            //Debug.Log("E detected!");
+            PickUp();
         }
+    }
+}
 
+    void PickUp()
+    {
+        playerHasDataChip = true;
+
+        //Debug.Log("Picked up: Data Chip");
         Destroy(gameObject);
+        uiText.UpdateObjectiveText("Objective - Escape");
+
+        //FindObjectOfType<UIText>().UpdateObjectiveText("Objective: Escape");
+
+    
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+            //Debug.Log("Player entered chip range");
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 }

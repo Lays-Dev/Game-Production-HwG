@@ -71,6 +71,9 @@ public class EnemySound : MonoBehaviour
     // Hack variables
     private EnemyHack enemyHack;
 
+    [Header("Enemy Alert UI")]
+    public EnemyAlertUI alertUI;
+
     void Start() {
         playerMovement = player.GetComponent<PlayerMovement>();
         agent = GetComponent<NavMeshAgent>();
@@ -89,6 +92,11 @@ public class EnemySound : MonoBehaviour
         }
         // Memory logic
         bool canSee = CanSeePlayer();
+        // Change UI icon
+        if (alertUI != null)
+        {
+            alertUI.SetDetected(currentState == EnemyState.Chasing);
+        }
         // Enemy can hear the player if they are sprinting, unless the enemy is hacked
         bool canHearSprint = playerMovement != null && playerMovement.IsSprinting && (enemyHack == null || !enemyHack.IsHacked);
 
