@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("DATARUNNER");
+        SceneManager.LoadScene("DATARUNNER2");
     }
 
     public void CreditsButton()

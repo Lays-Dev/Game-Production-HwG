@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyCatchPlayer : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class EnemyCatchPlayer : MonoBehaviour
     private bool hasLost = false;
 
     void Start()
-{
-    enemyHack = GetComponent<EnemyHack>();
-}
+    {
+        enemyHack = GetComponent<EnemyHack>();
+    }
 
     void Update()
     {
@@ -25,7 +26,12 @@ public class EnemyCatchPlayer : MonoBehaviour
         if (distance <= catchDistance)
         {
             hasLost = true;
-            GameManager.Instance.LoseGame();
+
+            // Reset pause state if needed
+            Time.timeScale = 1f;
+            AudioListener.pause = false;
+
+            SceneManager.LoadScene("GameOverScreen");
         }
     }
 }

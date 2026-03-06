@@ -11,7 +11,7 @@ public class WinScreen : MonoBehaviour
 
     public void RetryButton()
     {
-        SceneManager.LoadScene("DATARUNNER");
+        SceneManager.LoadScene("DATARUNNER2");
         AudioListener.pause = false;
     }
 
