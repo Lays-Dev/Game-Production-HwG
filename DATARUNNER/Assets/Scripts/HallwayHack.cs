@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HackableButton : MonoBehaviour
+public class HallwayHack : MonoBehaviour
 {
     public GameObject objectToDestroy1;
     public GameObject objectToDestroy2;
