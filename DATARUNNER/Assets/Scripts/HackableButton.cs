@@ -2,21 +2,34 @@ using UnityEngine;
 
 public class HackableButton : MonoBehaviour
 {
-    public GameObject objectToDestroy1;
-    public GameObject objectToDestroy2;
+    public HackGroup hackGroup;
+
+    [Header("VFX")]
+    public GameObject currentVFX;
+    public GameObject hackedVFXPrefab;
+
+    private bool isHacked = false;
 
     public void Hack()
     {
-        if (objectToDestroy1 != null)
+        if (isHacked) return;
+        isHacked = true;
+
+        if (hackGroup != null)
         {
-            Destroy(objectToDestroy1);
-            Debug.Log("Object 1 hacked and destroyed!");
+            hackGroup.RegisterHack();
         }
 
-        if (objectToDestroy2 != null)
+        if (currentVFX != null)
         {
-            Destroy(objectToDestroy2);
-            Debug.Log("Object 2 hacked and destroyed!");
+            Destroy(currentVFX);
         }
+
+        if (hackedVFXPrefab != null)
+        {
+            Instantiate(hackedVFXPrefab, transform.position, Quaternion.identity);
+        }
+
+        Debug.Log("Button hacked!");
     }
 }
