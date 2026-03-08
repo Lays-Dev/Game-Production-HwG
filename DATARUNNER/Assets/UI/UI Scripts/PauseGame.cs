@@ -9,6 +9,10 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pauseMenu_UI.SetActive(false);
+        isPaused = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
