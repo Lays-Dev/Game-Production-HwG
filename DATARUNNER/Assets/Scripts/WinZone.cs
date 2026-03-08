@@ -7,7 +7,7 @@ public class WinZone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && ExitObjective.objectDestroyed)
+        if (other.CompareTag("Player") && WinCondition.objectDestroyed)
         {
             Debug.Log("Player escaped!");
 

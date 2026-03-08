@@ -6,34 +6,38 @@ public class DataChip : MonoBehaviour
     public static bool playerHasDataChip = false;
 
     private bool playerInRange = false;
+
     // UI functionality
     public UIText uiText;
 
-void Update()
-{
-    if (playerInRange)
-    {
-        //Debug.Log("Player in range");
+    [Header("VFX")]
+    public GameObject pickupVFX;
+    public Transform vfxSpawnPoint; // where the VFX will appear
 
-        if (Input.GetKeyDown(KeyCode.E))
+    void Update()
+    {
+        if (playerInRange)
         {
-            //Debug.Log("E detected!");
-            PickUp();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PickUp();
+            }
         }
     }
-}
 
     void PickUp()
     {
         playerHasDataChip = true;
 
-        //Debug.Log("Picked up: Data Chip");
-        Destroy(gameObject);
+        // Spawn VFX at the custom location
+        if (pickupVFX != null && vfxSpawnPoint != null)
+        {
+            Instantiate(pickupVFX, vfxSpawnPoint.position, vfxSpawnPoint.rotation);
+        }
+
         uiText.UpdateObjectiveText("Objective - Escape");
 
-        //FindObjectOfType<UIText>().UpdateObjectiveText("Objective: Escape");
-
-    
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,7 +45,6 @@ void Update()
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            //Debug.Log("Player entered chip range");
         }
     }
 
