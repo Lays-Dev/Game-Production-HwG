@@ -16,7 +16,7 @@ public class CreditsMenu : MonoBehaviour
     IEnumerator PlayAudioThenLoadScene(AudioSource buttonSFX, string sceneName)
     {
         buttonSFX.Play();
-        yield return new WaitForSeconds(buttonSFX.clip.length);
+        yield return new WaitForSeconds(buttonSFX.clip.length - 0.25f);
         SceneManager.LoadScene(sceneName);
     }
 
