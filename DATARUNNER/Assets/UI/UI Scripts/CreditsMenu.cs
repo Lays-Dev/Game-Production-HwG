@@ -13,6 +13,9 @@ public class CreditsMenu : MonoBehaviour
     {
         creditsMenu_UI.SetActive(true);
         buttonSound = GetComponent<AudioSource>();
+
+            EventSystem.current.SetSelectedGameObject(null);
+    EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     IEnumerator PlayAudioThenLoadScene(AudioSource buttonSFX, string sceneName)

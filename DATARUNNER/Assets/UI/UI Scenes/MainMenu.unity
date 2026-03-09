@@ -1188,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
   mainMenu_UI: {fileID: 389724561}
+  firstSelectedButton: {fileID: 661722527}
 --- !u!82 &1019081477
 AudioSource:
   m_ObjectHideFlags: 0

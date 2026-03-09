@@ -1733,6 +1733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsMenu
   creditsMenu_UI: {fileID: 1169458}
+  firstSelectedButton: {fileID: 88129110}
 --- !u!82 &1019081477
 AudioSource:
   m_ObjectHideFlags: 0

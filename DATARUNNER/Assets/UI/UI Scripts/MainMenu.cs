@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu_UI.SetActive(true);
         buttonSound = GetComponent<AudioSource>();
+            EventSystem.current.SetSelectedGameObject(null);
+    EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     IEnumerator PlayAudioThenLoadScene(AudioSource buttonSFX, string sceneName)

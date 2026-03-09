@@ -1087,7 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoseScreen
   gameLose_UI: {fileID: 1774726059}
-  loseSound: {fileID: 0}
+  loseSound: {fileID: 1389519146}
+  firstSelectedButton: {fileID: 88129110}
 --- !u!1 &1384871147
 GameObject:
   m_ObjectHideFlags: 0

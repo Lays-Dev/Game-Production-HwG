@@ -1127,6 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinScreen
   gameWin_UI: {fileID: 879246571}
+  firstSelectedButton: {fileID: 88129110}
 --- !u!1 &1384871147
 GameObject:
   m_ObjectHideFlags: 0
