@@ -1,18 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 200f;
-    private Transform playerBody;
+    public float controllerSensitivity = 200f;
 
-    float xRotation = 0f;
+    private Transform playerBody;
+    private float xRotation = 0f;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Automatically find the parent (Player)
         playerBody = transform.parent;
     }
 
@@ -21,8 +22,18 @@ public class MouseLook : MonoBehaviour
         if (PauseGame.isPaused)
             return;
 
+        // MOUSE INPUT (old system)
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        // CONTROLLER INPUT (new system)
+        if (Gamepad.current != null)
+        {
+            Vector2 stick = Gamepad.current.rightStick.ReadValue();
+
+            mouseX += stick.x * controllerSensitivity * Time.deltaTime;
+            mouseY += stick.y * controllerSensitivity * Time.deltaTime;
+        }
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

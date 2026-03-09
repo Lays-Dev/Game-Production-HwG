@@ -13,8 +13,6 @@ public class PickupItem : MonoBehaviour
     // Enemy goes here
     public EnemySound Enemy;
 
-    private bool playerInRange = false;
-
     void Update()
     {
      //   if (playerInRange && Input.GetKeyDown(KeyCode.E))
@@ -23,25 +21,9 @@ public class PickupItem : MonoBehaviour
             Enemy.AlertToPlayerLocation();
             // Pick up the item
             Debug.Log("Item picked up! Enemy is coming");
-            FindObjectOfType<UIText>().UpdateObjectiveText("Objective: Escape");
+            Object.FindFirstObjectByType<UIText>().UpdateObjectiveText("Objective: Escape");
             Destroy(gameObject);
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Something entered trigger: " + other.name);
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
 }

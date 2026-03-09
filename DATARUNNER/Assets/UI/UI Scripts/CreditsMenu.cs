@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class CreditsMenu : MonoBehaviour
 {
     public GameObject creditsMenu_UI;
+    public GameObject firstSelectedButton;
     AudioSource buttonSound;
 
     void Start()

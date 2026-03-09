@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerHack : MonoBehaviour
 {
@@ -29,6 +30,27 @@ public class PlayerHack : MonoBehaviour
 
     private float holdTimer = 0f;
 
+    private PlayerControls3 controls;
+    private bool hackPressed = false;
+
+    void Awake()
+    {
+        controls = new PlayerControls3();
+
+        controls.Player.Hack.performed += ctx => hackPressed = true;
+        controls.Player.Hack.canceled += ctx => hackPressed = false;
+    }
+
+    void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Disable();
+    }
+
     void Update()
     {
         HandleCooldown();
@@ -37,18 +59,19 @@ public class PlayerHack : MonoBehaviour
         RaycastHit hit;
 
         Debug.DrawRay(playerCamera.transform.position,
-                    playerCamera.transform.forward * enemyHackDistance,
-                    Color.red);
+                      playerCamera.transform.forward * enemyHackDistance,
+                      Color.red);
 
         if (Physics.Raycast(ray, out hit, enemyHackDistance, hackLayers))
         {
             Debug.Log(hit.collider.name);
+
             // ENEMY
             EnemyHack enemy = hit.collider.GetComponentInParent<EnemyHack>();
 
             if (enemy != null)
             {
-                if (hackReady && (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)))
+                if (hackReady && hackPressed)
                 {
                     enemy.HackEnemy();
                     hackReady = false;
@@ -62,12 +85,12 @@ public class PlayerHack : MonoBehaviour
                 return;
             }
 
-            // HACK BOX
+            // HACK POINT
             HackableButton hackPoint = hit.collider.GetComponentInParent<HackableButton>();
 
             if (hackPoint != null && hit.distance <= hackPointDistance)
             {
-                if (Input.GetKey(KeyCode.Q) || Input.GetMouseButton(0))
+                if (hackPressed)
                 {
                     holdTimer += Time.deltaTime;
 
@@ -87,6 +110,8 @@ public class PlayerHack : MonoBehaviour
                 return;
             }
         }
+
+        holdTimer = 0f;
     }
 
     void HandleCooldown()

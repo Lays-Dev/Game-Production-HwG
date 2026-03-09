@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PauseGame : MonoBehaviour
 {
     public GameObject pauseMenu_UI;
     public static bool isPaused = false;
+    public GameObject firstButton;
+    public GameObject firstSelectedButton;
 
     void Start()
     {
@@ -16,30 +20,34 @@ public class PauseGame : MonoBehaviour
     }
 
     void Update()
+{
+    bool pausePressed = Input.GetKeyDown(KeyCode.Escape);
+
+    if (Gamepad.current != null)
     {
-        // Pauses Game when Escape Key is Pressed
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                ResumeButton();
-            }
-            else
-            {
-                Pause();
-            }
-        }
+        pausePressed |= Gamepad.current.startButton.wasPressedThisFrame;
     }
 
-    void Pause()
+    if (pausePressed)
     {
-        pauseMenu_UI.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        AudioListener.pause = true;
-        isPaused = true;
+        if (isPaused)
+            ResumeButton();
+        else
+            Pause();
     }
+}
+
+void Pause()
+{
+    pauseMenu_UI.SetActive(true);
+    Time.timeScale = 0f;
+    Cursor.lockState = CursorLockMode.None;
+    Cursor.visible = true;
+    AudioListener.pause = true;
+    isPaused = true;
+
+    EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+}
     // Hides the Pause Menu and Resumes the Game
     public void ResumeButton()
     {
