@@ -14831,6 +14831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdfe9e7c0226254f98bae903e485f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseGame
+  pauseMenu_UI: {fileID: 0}
 --- !u!43 &990461862
 Mesh:
   m_ObjectHideFlags: 0
@@ -17270,10 +17271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a480d48ccb1552443935528c69dab633, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1915377477}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a480d48ccb1552443935528c69dab633, type: 3}
       insertIndex: -1
@@ -17368,6 +17366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd2dc84768e4f74ba62ba419304fd17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataChip
+  pickupSound: {fileID: 1915377478}
   uiText: {fileID: 1099026222}
   pickupVFX: {fileID: 685576765507335060, guid: e0e7086837a9f254ab8f968a99154cfe, type: 3}
   vfxSpawnPoint: {fileID: 315332441}
@@ -17383,11 +17382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d735120705646418dec2a872426a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!4 &1247493817 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a480d48ccb1552443935528c69dab633, type: 3}
-  m_PrefabInstance: {fileID: 1247493806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1262376562
 GameObject:
   m_ObjectHideFlags: 0
@@ -60554,12 +60548,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915377476}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5000001, y: 0.49999997, z: 0.4999999, w: 0.5000001}
-  m_LocalPosition: {x: -2.0024824, y: -1.7062813, z: -0.113129236}
-  m_LocalScale: {x: 0.2, y: 0.19999996, z: 0.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0.000000029802319, w: 1}
+  m_LocalPosition: {x: 1.4685907, y: 0.83435285, z: -2.7624092}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1247493817}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1915377478
 AudioSource:
@@ -63281,6 +63275,7 @@ SceneRoots:
   - {fileID: 1015318004}
   - {fileID: 1320156601}
   - {fileID: 358408380}
+  - {fileID: 1915377477}
   - {fileID: 1247493806}
   - {fileID: 167835786}
   - {fileID: 1431453456}

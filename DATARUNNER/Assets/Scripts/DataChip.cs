@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class DataChip : MonoBehaviour
@@ -6,6 +7,8 @@ public class DataChip : MonoBehaviour
     public static bool playerHasDataChip = false;
 
     private bool playerInRange = false;
+
+    public AudioSource pickupSound;
 
     // UI functionality
     public UIText uiText;
@@ -29,10 +32,11 @@ public class DataChip : MonoBehaviour
     {
         playerHasDataChip = true;
 
-        // Spawn VFX at the custom location
+        // Spawn VFX & Audio at the custom location
         if (pickupVFX != null && vfxSpawnPoint != null)
         {
             Instantiate(pickupVFX, vfxSpawnPoint.position, vfxSpawnPoint.rotation);
+            pickupSound.Play();
         }
 
         uiText.UpdateObjectiveText("Objective - Escape");
