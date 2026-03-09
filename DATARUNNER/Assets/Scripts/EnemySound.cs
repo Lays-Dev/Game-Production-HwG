@@ -74,6 +74,9 @@ public class EnemySound : MonoBehaviour
     [Header("Enemy Alert UI")]
     public EnemyAlertUI alertUI;
 
+    [Header("Enemy Audio")]
+    public AudioSource enemyDetectsSound;
+
     void Start() {
         playerMovement = player.GetComponent<PlayerMovement>();
         agent = GetComponent<NavMeshAgent>();
@@ -120,6 +123,7 @@ public class EnemySound : MonoBehaviour
                 agent.isStopped = true; 
                 // Trigger a shock animation + sound here
                 Debug.Log("Enemy is shocked!");
+                enemyDetectsSound.Play();
             }
 
             wasChasingLastFrame = true;
@@ -163,6 +167,7 @@ public class EnemySound : MonoBehaviour
             {
                 currentState = EnemyState.Patrolling;
                 agent.speed = patrolSpeed;
+                enemyDetectsSound.Stop();
                 agent.isStopped = false;
                 GoToNextPatrolPoint();
             }
