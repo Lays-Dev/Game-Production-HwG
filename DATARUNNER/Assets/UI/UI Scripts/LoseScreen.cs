@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 public class LoseScreen : MonoBehaviour
 {
     public GameObject gameLose_UI;
+    public AudioSource loseSound;
 
     void Start()
     {
+        loseSound.Play();
     }
 
     public void RetryButton()
