@@ -15100,9 +15100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdfe9e7c0226254f98bae903e485f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseGame
-  pauseMenu_UI: {fileID: 0}
-  firstButton: {fileID: 0}
-  firstSelectedButton: {fileID: 0}
 --- !u!43 &990461862
 Mesh:
   m_ObjectHideFlags: 0
@@ -15651,7 +15648,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1034406401}
-  - component: {fileID: 1034406400}
+  - component: {fileID: 1034406402}
   m_Layer: 0
   m_Name: Enemy Stuff
   m_TagString: Untagged
@@ -15659,7 +15656,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1034406400
+--- !u!4 &1034406401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034406399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.3503895, y: 1.0458, z: 4.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 401650157}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034406402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15671,23 +15684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90eaf3ee6277a44880084516defd25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectSpawner
-  objectToSpawn: {fileID: 0}
---- !u!4 &1034406401
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034406399}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.35039, y: 1.0458, z: 4.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 401650157}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  objectToSpawn: {fileID: 6375077341905434813, guid: 3a4e36c9f0375de4889ce98dc4b94080, type: 3}
 --- !u!4 &1043401439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3907679614406300944, guid: 13c990b8270c70b4c9f196019286028c, type: 3}
