@@ -4328,7 +4328,7 @@ MonoBehaviour:
   catchDistance: 1.5
   sightLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 705
 --- !u!114 &265252007
 MonoBehaviour:
   m_ObjectHideFlags: 0
