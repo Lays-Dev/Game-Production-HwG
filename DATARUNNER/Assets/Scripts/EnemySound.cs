@@ -60,6 +60,8 @@ public class EnemySound : MonoBehaviour
     private PlayerMovement playerMovement;
     private NavMeshAgent agent;
     private int patrolIndex;
+    private float currentSpeed;
+private Animator animator;
 
 // Keeps enemy from getting stuck
     [Header("Stuck Settings")]
@@ -79,6 +81,7 @@ public class EnemySound : MonoBehaviour
 
     void Start() {
         playerMovement = player.GetComponent<PlayerMovement>();
+         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         enemyHack = GetComponent<EnemyHack>();
         GoToNextPatrolPoint();
@@ -88,6 +91,9 @@ public class EnemySound : MonoBehaviour
 	// Checks if player is in sight before following the cautious path
 	{
         CheckIfStuck();
+
+    float currentSpeed = agent.velocity.magnitude;
+    animator.SetFloat("Speed", currentSpeed);
 
         if (playerMovement != null && playerMovement.IsSprinting)
         {
@@ -111,6 +117,12 @@ public class EnemySound : MonoBehaviour
         {
             memoryTimer -= Time.deltaTime;
         }
+
+        // Set currentSpeed based on agent's velocity
+        currentSpeed = agent.velocity.magnitude;
+
+        // Update Animator parameter
+        animator.SetFloat("Speed", currentSpeed);
 
 
         if (memoryTimer > 0)
