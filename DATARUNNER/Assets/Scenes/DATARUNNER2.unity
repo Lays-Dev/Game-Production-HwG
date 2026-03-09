@@ -5314,11 +5314,11 @@ MonoBehaviour:
   hackLayers:
     serializedVersion: 2
     m_Bits: 449
-  enemyHackDistance: 5
+  enemyHackDistance: 7
   hackPointDistance: 5
   hackHoldTime: 3
   firstUnlockDelay: 4
-  hackCooldown: 5
+  hackCooldown: 7
   hackIcon: {fileID: 673534812}
 --- !u!4 &299465819 stripped
 Transform:
@@ -10752,7 +10752,6 @@ GameObject:
   - component: {fileID: 590936968}
   - component: {fileID: 590936967}
   - component: {fileID: 590936966}
-  - component: {fileID: 590936971}
   m_Layer: 6
   m_Name: Temp Player Asset
   m_TagString: Player
@@ -10896,20 +10895,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590936962}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &590936971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590936962}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1ea1ae01564134685b1c816f16e39d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::XboxPickup
-  pickupDistance: 3
-  playerCamera: {fileID: 291544575}
 --- !u!1 &602563850
 GameObject:
   m_ObjectHideFlags: 0

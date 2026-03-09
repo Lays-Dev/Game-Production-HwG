@@ -7,11 +7,13 @@ public class WinZone : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && WinCondition.objectDestroyed)
+        if (!WinCondition.objectDestroyed) return;
+
+        if (other.CompareTag("Player"))
         {
             Debug.Log("Player escaped!");
 
-            Time.timeScale = 1f; // make sure time isn't paused
+            Time.timeScale = 1f;
             SceneManager.LoadScene(winSceneName);
         }
     }
