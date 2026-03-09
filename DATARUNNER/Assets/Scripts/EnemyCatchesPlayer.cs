@@ -5,6 +5,9 @@ public class EnemyCatchPlayer : MonoBehaviour
 {
     public Transform player;
     public float catchDistance = 1.5f;
+
+    public LayerMask sightLayers; // player + environment layers
+
     private EnemyHack enemyHack;
     private bool hasLost = false;
 
@@ -16,22 +19,37 @@ public class EnemyCatchPlayer : MonoBehaviour
     void Update()
     {
         if (hasLost) return;
+
         if (enemyHack != null && enemyHack.IsHacked)
-        {
-            // Enemy is currently hacked, so it cannot catch the player
-            return; 
-        }
+            return;
+
         float distance = Vector3.Distance(transform.position, player.position);
 
-        if (distance <= catchDistance)
+        if (distance <= catchDistance && CanSeePlayer())
         {
             hasLost = true;
 
-            // Reset pause state if needed
             Time.timeScale = 1f;
             AudioListener.pause = false;
 
             SceneManager.LoadScene("GameOverScreen");
         }
+    }
+
+    bool CanSeePlayer()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, direction, out hit, catchDistance, sightLayers))
+        {
+            if (hit.transform == player)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

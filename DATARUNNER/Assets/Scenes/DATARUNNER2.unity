@@ -4326,6 +4326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCatchPlayer
   player: {fileID: 590936963}
   catchDistance: 1.5
+  sightLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &265252007
 MonoBehaviour:
   m_ObjectHideFlags: 0
