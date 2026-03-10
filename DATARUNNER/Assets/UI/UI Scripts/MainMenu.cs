@@ -13,8 +13,8 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu_UI.SetActive(true);
         buttonSound = GetComponent<AudioSource>();
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     IEnumerator PlayAudioThenLoadScene(AudioSource buttonSFX, string sceneName)
@@ -52,11 +52,6 @@ public class MainMenu : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
-    }
-
-    public void ControlsIconButton()
-    {
-        StartCoroutine(PlayAudioThenLoadScene(buttonSound, "ControlsScreen"));
     }
 
     void CursorReset()
