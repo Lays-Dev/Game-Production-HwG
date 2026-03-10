@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         // FOOTSTEP SOUND
         if (footstepSource != null)
         {
+            Debug.Log("Footstep AudioSource found and assigned.");
             footstepSource.clip = footstepClip;
             footstepSource.loop = true;
         }
