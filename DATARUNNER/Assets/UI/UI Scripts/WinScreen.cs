@@ -5,12 +5,15 @@ using UnityEngine.EventSystems;
 public class WinScreen : MonoBehaviour
 {
     public GameObject gameWin_UI;
+    public AudioSource winSound;
     public GameObject firstSelectedButton;
 
     void Start()
     {
-            EventSystem.current.SetSelectedGameObject(null);
-    EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        winSound.Play();
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     public void RetryButton()

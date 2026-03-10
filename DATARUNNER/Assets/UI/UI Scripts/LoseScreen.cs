@@ -12,8 +12,8 @@ public class LoseScreen : MonoBehaviour
     {
         loseSound.Play();
 
-    EventSystem.current.SetSelectedGameObject(null);
-    EventSystem.current.SetSelectedGameObject(firstSelectedButton);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
     public void RetryButton()
