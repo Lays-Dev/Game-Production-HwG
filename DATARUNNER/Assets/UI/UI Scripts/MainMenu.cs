@@ -49,6 +49,11 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(PlayAudioThenLoadScene(buttonSound, "CreditsMenu"));
     }
 
+    public void ControlsButton()
+    {
+        StartCoroutine(PlayAudioThenLoadScene(buttonSound, "ControlsScreen"));
+    }
+
     public void QuitButton()
     {
         Application.Quit();
