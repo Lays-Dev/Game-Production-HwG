@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private bool sprintUsed = false;
     private float sprintTimer = 0f;
 
+        // FOOTSTEP SOUND
+    [Header("Footstep Sound")]
+    public AudioSource footstepSource;
+    public AudioClip footstepClip;
+
     void Awake()
     {
         controls = new PlayerControls3();
@@ -45,6 +50,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        // FOOTSTEP SOUND
+        if (footstepSource != null)
+        {
+            footstepSource.clip = footstepClip;
+            footstepSource.loop = true;
+        }
     }
 
     void Update()
@@ -59,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = IsSprinting ? sprintSpeed : speed;
 
         controller.Move(move * currentSpeed * Time.deltaTime);
+
+        // FOOTSTEP SOUND
+        bool isMoving = moveInput.magnitude > 0.1f;
 
         if (IsSprinting)
         {
