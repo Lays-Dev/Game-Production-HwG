@@ -1,0 +1,69 @@
+at explains what is in each folder, how to play your game, your GitHub Link, your Itch.io link, release notes, anything I need to know. (This is the file I will read first).
+----GitHub Link----
+
+https://github.com/Lays-Dev/Game-Production-HwG.git
+
+----itch.io Link----
+
+https://itch.io/profile/breakthroughstudios
+
+----What is in each folder----
+
+- Build folder has a playable build of the game DATARUNNER
+
+- Documents folder has the GDD, ASG, Concept Doc, Wireframes, Team Contract, and Production Plan
+
+----How to play----
+
+KEYBOARD CONTROLS:
+WASD to move.
+E to interact.
+ESC to pause the game.
+SHIFT to sprint. (One use only - use it wisely!)
+SPACEBAR to jump.
+LEFT CLICK to hack the enemy/hack the panel.
+MOUSE  to look around.
+
+CONTROLLER CONTROLS:
+LEFT JOYSTICK to move.
+LEFT JOYSTICK BUTTON to sprint. (One use only - use it wisely!)
+RT to hack the enemy/hack the panel.
+DPAD UP to interact.
+DPAD DOWN to jump.
+RIGHT JOYSTICK to look around.
+OPTIONS BUTTON to pause the game.
+
+ICONS:
+
+Green Icon - Undetected/Safe
+Red Icon - Detected
+Purple Icon - Looking at hackable object/person
+Blue Icon - Emergency Sprint Ready
+
+----Release notes----
+
+An enemy faction member stole a data chip from the company you work under. 
+You've been hired to get it back.
+
+Sneak around this cyberpunk world, and locate the missing chip. Get it, and get out - without being caught.
+
+-Interact with Hack Points to unlock doors.
+
+-Hack the enemy to stun them momentarily
+
+-Use invisibility spots to hide from the enemy.
+
+Watch your back. Complete your mission. 
+
+--------------------
+
+2026 Breakthrough Studios 
+
+CREDITS
+
+@lays-dev - Producer/Programming
+@queenkimchi - 3D Artist/Animation
+@bonnor26 - Programming/Audio Design
+@ehhhgg - 2D and 3D Artist
+@jixens - UI/Level Design
+@azsreth - Level Design/QA Tester
