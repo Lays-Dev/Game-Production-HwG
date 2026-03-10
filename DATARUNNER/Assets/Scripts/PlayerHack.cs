@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerHack : MonoBehaviour
 {
@@ -15,12 +16,16 @@ public class PlayerHack : MonoBehaviour
     public float hackPointDistance = 3f;
     public float hackHoldTime = 3f;
 
+    [Header("Hack Lock")]
+    private bool hackCompleted = false;
+
     [Header("Ability Cooldown")]
     public float firstUnlockDelay = 15f;
     public float hackCooldown = 60f;
 
     [Header("UI")]
     public Image hackIcon;
+    public TMP_Text hackTimerText;
 
     private float unlockTimer = 0f;
     private float cooldownTimer = 0f;
@@ -30,6 +35,9 @@ public class PlayerHack : MonoBehaviour
 
     private float holdTimer = 0f;
 
+    // Track current hack target
+    private HackableButton currentHackTarget = null;
+
     private PlayerControls3 controls;
     private bool hackPressed = false;
 
@@ -38,7 +46,11 @@ public class PlayerHack : MonoBehaviour
         controls = new PlayerControls3();
 
         controls.Player.Hack.performed += ctx => hackPressed = true;
-        controls.Player.Hack.canceled += ctx => hackPressed = false;
+        controls.Player.Hack.canceled += ctx =>
+        {
+            hackPressed = false;
+            hackCompleted = false; // allow hacking again after release
+        };
     }
 
     void OnEnable()
@@ -66,7 +78,7 @@ public class PlayerHack : MonoBehaviour
         {
             Debug.Log(hit.collider.name);
 
-            // ENEMY
+            // ENEMY HACK
             EnemyHack enemy = hit.collider.GetComponentInParent<EnemyHack>();
 
             if (enemy != null)
@@ -82,6 +94,7 @@ public class PlayerHack : MonoBehaviour
                     Debug.Log("Enemy hacked!");
                 }
 
+                ResetHackProgress();
                 return;
             }
 
@@ -90,28 +103,60 @@ public class PlayerHack : MonoBehaviour
 
             if (hackPoint != null && hit.distance <= hackPointDistance)
             {
-                if (hackPressed)
+                // If player switches targets, reset timer
+                if (currentHackTarget != hackPoint)
+                {
+                    ResetHackProgress();
+                    currentHackTarget = hackPoint;
+                }
+
+                if (hackPressed && !hackCompleted)
                 {
                     holdTimer += Time.deltaTime;
+
+                    float remainingTime = hackHoldTime - holdTimer;
+
+                    if (hackTimerText != null)
+                        hackTimerText.text = "Hacking: " + remainingTime.ToString("F1") + "s";
 
                     Debug.Log($"Hacking {hackPoint.name}: {holdTimer:F2}/{hackHoldTime}");
 
                     if (holdTimer >= hackHoldTime)
                     {
                         hackPoint.Hack();
+
                         holdTimer = 0f;
+                        hackCompleted = true;
+
+                        if (hackTimerText != null)
+                            hackTimerText.text = "";
+
+                        Debug.Log("Hack Complete");
                     }
                 }
-                else
+
+                if (!hackPressed)
                 {
                     holdTimer = 0f;
+
+                    if (hackTimerText != null)
+                        hackTimerText.text = "";
                 }
 
                 return;
             }
         }
 
+        ResetHackProgress();
+    }
+
+    void ResetHackProgress()
+    {
         holdTimer = 0f;
+        currentHackTarget = null;
+
+        if (hackTimerText != null)
+            hackTimerText.text = "";
     }
 
     void HandleCooldown()
